@@ -1,0 +1,60 @@
+{{define "index"}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello World Lah</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>{{ "Name:" }}</td>
+            <td>{{ .Name }}</td>
+        </tr>
+        <tr>
+            <td>Gender:</td>
+            {{ $gender := .Gender }}
+            <td>
+                {{ $gender }}
+            </td>
+        </tr>
+        <tr>
+            <td>Hobbies:</td>
+            <td>
+                {{ range $index, $elem := .Hobbies }}
+                    {{$elem}},
+                {{end}}
+            </td>
+        </tr>
+
+        <tr>
+            <td>Affiliation:</td>
+            <td>{{ .Info.Affiliation }} {{ .Info.GetAffiliationDetailInfo }}</td>
+        </tr>
+
+        {{ with .Info }}
+        <tr>
+            <td>Address:</td>
+            <td>{{ .Address }}</td>
+        </tr>
+
+        {{ end }}
+
+        {{ if eq .Name "Bruce Wayne" }}
+        <tr>
+            <td colspan="2" style="font-weight: bold;">
+                I'm the batman!
+            </td>
+        </tr>
+        {{ else }}
+        <tr>
+            <td colspan="2" style="font-weight: bold;">
+                Hello Dunia
+            </td>
+        </tr>
+        {{ end }}
+    </table>
+</body>
+</html>
+{{end}}
