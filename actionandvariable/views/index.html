@@ -54,6 +54,16 @@
             </td>
         </tr>
         {{ end }}
+
+        {{ $isTrue := false }}
+
+        {{ if $isTrue }}
+            <h1>This IS TRUE</h1>
+        {{ end }}
+
+        {{ if ne $isTrue true }}
+            <h1>Not True</h1>
+        {{ end }}
     </table>
 </body>
 </html>
